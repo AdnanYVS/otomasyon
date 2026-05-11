@@ -8,6 +8,7 @@
 import * as Phaser from "phaser";
 
 import { AGENT_LIST, PERSONAS, type CharacterRole, type Persona } from "@/lib/personas";
+import { useUiStore } from "@/lib/uiStore";
 
 import { COLORS, MAP_H, MAP_W, OLIVE_POTS, ROOMS, TILE } from "./config";
 import {
@@ -65,7 +66,18 @@ export class OfficeScene extends Phaser.Scene {
     for (const persona of AGENT_LIST) {
       const tileX = persona.initialPos.x;
       const tileY = persona.initialPos.y;
-      drawDesk(this, tileX, tileY, persona.color);
+      const desk = drawDesk(this, tileX, tileY, persona.color);
+
+      // Tıklanabilir hit-area: masa + üstündeki ekipman + altındaki karakter
+      desk.setInteractive(
+        new Phaser.Geom.Rectangle(0, -28, TILE * 2, TILE + 60),
+        Phaser.Geom.Rectangle.Contains,
+      );
+      desk.on("pointerover", () => this.input.setDefaultCursor("pointer"));
+      desk.on("pointerout", () => this.input.setDefaultCursor("default"));
+      desk.on("pointerdown", () => {
+        useUiStore.getState().selectAgent(persona.id as CharacterRole as Exclude<CharacterRole, "tea">);
+      });
 
       // İsim etiketi (masa üstünde)
       this.add
