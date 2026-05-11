@@ -7,7 +7,7 @@
 import * as Phaser from "phaser";
 
 import { TEA_INTERVAL_MS_MAX, TEA_INTERVAL_MS_MIN, TILE } from "./config";
-import { drawCharacter, drawTeaCup } from "./sprites";
+import { drawCharacter, drawTeaCup, type CharacterColors } from "./sprites";
 import type { CharacterRole, Persona } from "@/lib/personas";
 
 const SPEED = 60; // px/sec
@@ -29,7 +29,13 @@ export class TeaNPC {
     this.scene = scene;
     const startX = persona.initialPos.x * TILE + TILE / 2;
     const startY = persona.initialPos.y * TILE + TILE / 2;
-    this.sprite = drawCharacter(scene, startX, startY, persona.color);
+    const colors: CharacterColors = {
+      shirt: persona.color,
+      hair: persona.hair,
+      skin: persona.skin,
+      pants: persona.pants,
+    };
+    this.sprite = drawCharacter(scene, startX, startY, colors);
     this.home = { x: startX, y: startY };
     this.targetSeats = desks.map((d) => ({
       id: d.id,
