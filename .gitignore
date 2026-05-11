@@ -1,0 +1,21 @@
+# Spec: yumeagency.md lines 163-170
+.env
+/clients/*/outputs/
+__pycache__/
+node_modules/
+*.pyc
+.DS_Store
+
+# Common build/dev artifacts
+.next/
+dist/
+build/
+*.log
+
+# IDE / OS
+.vscode/
+.idea/
+Thumbs.db
+
+# Claude Code session/settings (project-local, not portable)
+.claude/

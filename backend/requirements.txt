@@ -1,0 +1,19 @@
+# Yume Creative Lab — Backend (Faz 1)
+# Spec: yumeagency.md lines 100-105
+
+# Web framework
+fastapi==0.115.0
+uvicorn[standard]==0.32.0
+
+# Type-safe agent data models (spec line 250)
+pydantic==2.9.2
+pydantic-settings==2.6.0
+
+# Env loading
+python-dotenv==1.0.1
+
+# === Faz 4 dependencies (uncomment when integrating real LLMs) ===
+# crewai>=0.86.0
+# anthropic>=0.39.0
+# openai>=1.54.0
+# tavily-python>=0.5.0

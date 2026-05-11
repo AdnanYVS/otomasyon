@@ -1,0 +1,13 @@
+# Spec: yumeagency.md lines 219-232
+/clients/*/outputs/
+node_modules/
+__pycache__/
+*.log
+*.png
+*.jpg
+*.jpeg
+*.gif
+*.svg
+dist/
+build/
+.git/
