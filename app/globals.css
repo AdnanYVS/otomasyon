@@ -1,0 +1,27 @@
+html,
+body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  background: #3a2a1f;
+  color: #ffffff;
+  font-family: ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
+  image-rendering: pixelated;
+}
+
+canvas {
+  image-rendering: pixelated;
+  image-rendering: crisp-edges;
+}
+
+.hud {
+  position: absolute;
+  left: 16px;
+  top: 16px;
+  z-index: 10;
+  background: rgba(0, 0, 0, 0.5);
+  padding: 4px 12px;
+  font-size: 12px;
+  border-radius: 4px;
+  pointer-events: none;
+}

@@ -12,6 +12,12 @@ dist/
 build/
 *.log
 
+# Next.js
+.next/
+out/
+next-env.d.ts
+tsconfig.tsbuildinfo
+
 # IDE / OS
 .vscode/
 .idea/
